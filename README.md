@@ -23,8 +23,8 @@
 - [Solution Approach](#-solution-approach)
 - [Quick Start](#-quick-start)
 - [API Documentation](#-api-documentation)
-- [Code Structure](#-code-structure)
-- [Testing](#-testing)
+- [Configuration](#-configuration)
+- [Technical Features](#️-technical-features)
 - [Deployment](#-deployment)
 
 ---
@@ -77,6 +77,67 @@ Our solution leverages cutting-edge **Large Language Models (LLMs)** and **Natur
 - **99% Accuracy**: AI-powered analysis with human-level precision
 - **24/7 Availability**: Round-the-clock claim processing capabilities
 - **Cost Reduction**: Significantly lower operational costs
+
+---
+
+## 🎥 Prototype Demo
+
+### Complete User Journey Screenshots
+
+#### 1. **Landing Page & Introduction**
+
+![Landing Page](frontend/public/images/b1.png)
+_Professional landing page with Bajaj branding and clear call-to-action buttons_
+
+#### 2. **Query Input Interface**
+
+![Input Interface](frontend/public/images/b2.png)
+_Multi-modal input interface supporting text, voice, and file upload with intuitive design_
+
+#### 3. **AI Processing & Analysis**
+
+![AI Processing](frontend/public/images/b3.png)
+_Real-time AI processing with live progress indicators and document scanning visualization_
+
+#### 4. **Results & Decision Display**
+
+![Results Display](frontend/public/images/b4.png)
+_Comprehensive results showing decision, confidence score, referenced clauses, and detailed justification_
+
+#### 5. **Detailed Analysis & Explanation**
+
+![Detailed Analysis](frontend/public/images/b5.png)
+_In-depth analysis breakdown with step-by-step reasoning and policy clause mapping_
+
+### Key Demo Features Showcased
+
+#### 🎯 **Natural Language Processing**
+
+- Plain English query understanding
+- Context extraction (age, gender, procedure, location)
+- Smart parsing of insurance-related terms
+
+#### 🔍 **Intelligent Document Analysis**
+
+- Real-time policy document scanning
+- Semantic search through complex legal documents
+- Clause-level precision in decision making
+
+#### 📊 **Transparent Decision Making**
+
+- Clear approval/rejection decisions
+- Confidence scoring for reliability
+- Step-by-step reasoning explanation
+- Direct policy clause references
+
+#### 🎨 **Professional User Experience**
+
+- Bajaj-branded interface with consistent design
+- Smooth animations and transitions
+- Responsive design for all devices
+- Intuitive navigation and feedback
+
+---
 
 ## 🎯 Objective
 
@@ -209,67 +270,6 @@ graph TB
 - **Development**: Hot reload, TypeScript checking
 - **Production**: Gunicorn, Static file serving
 - **Environment**: Environment variables for configuration
-
----
-
-## 🎥 Prototype Demo
-
-### Complete User Journey Screenshots
-
-#### 1. **Landing Page & Introduction**
-
-![Landing Page](frontend/public/images/b1.png)
-_Professional landing page with Bajaj branding and clear call-to-action buttons_
-
-#### 2. **Query Input Interface**
-
-![Input Interface](frontend/public/images/b2.png)
-_Multi-modal input interface supporting text, voice, and file upload with intuitive design_
-
-#### 3. **AI Processing & Analysis**
-
-![AI Processing](frontend/public/images/b3.png)
-_Real-time AI processing with live progress indicators and document scanning visualization_
-
-#### 4. **Results & Decision Display**
-
-![Results Display](frontend/public/images/b4.png)
-_Comprehensive results showing decision, confidence score, referenced clauses, and detailed justification_
-
-#### 5. **Detailed Analysis & Explanation**
-
-![Detailed Analysis](frontend/public/images/b5.png)
-_In-depth analysis breakdown with step-by-step reasoning and policy clause mapping_
-
-### Key Demo Features Showcased
-
-#### 🎯 **Natural Language Processing**
-
-- Plain English query understanding
-- Context extraction (age, gender, procedure, location)
-- Smart parsing of insurance-related terms
-
-#### 🔍 **Intelligent Document Analysis**
-
-- Real-time policy document scanning
-- Semantic search through complex legal documents
-- Clause-level precision in decision making
-
-#### 📊 **Transparent Decision Making**
-
-- Clear approval/rejection decisions
-- Confidence scoring for reliability
-- Step-by-step reasoning explanation
-- Direct policy clause references
-
-#### 🎨 **Professional User Experience**
-
-- Bajaj-branded interface with consistent design
-- Smooth animations and transitions
-- Responsive design for all devices
-- Intuitive navigation and feedback
-
----
 
 ## 🧠 Solution Approach
 
@@ -469,81 +469,6 @@ Response:
 }
 ```
 
-## 🧪 Testing & Validation
-
-### **Comprehensive Testing Strategy**
-
-#### **1. API Testing**
-
-```bash
-# Backend API health check
-curl http://localhost:5000/health
-
-# Test query processing
-curl -X POST http://localhost:5000/query \
-  -H "Content-Type: application/json" \
-  -d '{"query": "46-year-old male, knee surgery, 3-month policy"}'
-
-# Automated testing script
-cd backend && python test_api.py
-```
-
-#### **2. Sample Test Queries**
-
-##### **Basic Coverage Scenarios**
-
-| Test Case               | Query                                                 | Expected Outcome  |
-| ----------------------- | ----------------------------------------------------- | ----------------- |
-| **Young Adult Surgery** | "25-year-old female, appendix surgery, 2-year policy" | ✅ Approved       |
-| **Senior Procedure**    | "65-year-old male, cataract surgery, 5-year policy"   | ✅ Approved       |
-| **New Policy**          | "30-year-old, emergency surgery, 1-month policy"      | ❌ Waiting period |
-
-##### **Complex Medical Cases**
-
-| Test Case                  | Query                                                         | Expected Analysis             |
-| -------------------------- | ------------------------------------------------------------- | ----------------------------- |
-| **Pre-existing Condition** | "Diabetic patient, heart surgery, 3-year policy"              | Detailed clause analysis      |
-| **Multiple Procedures**    | "Cancer patient, chemotherapy and surgery, long-term policy"  | Comprehensive coverage review |
-| **Accident Cases**         | "Motorcycle accident, multiple injuries, emergency treatment" | Priority processing           |
-
-##### **Edge Cases & Validation**
-
-| Test Case              | Query                             | System Behavior       |
-| ---------------------- | --------------------------------- | --------------------- |
-| **Incomplete Info**    | "Surgery needed, help with claim" | Request clarification |
-| **Ambiguous Terms**    | "My operation was rejected"       | Context gathering     |
-| **Multiple Locations** | "Treatment in Mumbai and Delhi"   | Geographic analysis   |
-
-#### **3. Performance Testing**
-
-- **Response Time**: < 3 seconds for standard queries
-- **Concurrent Users**: Support for 100+ simultaneous requests
-- **Document Processing**: Handle 1000+ page documents
-- **Memory Usage**: Optimized for production deployment
-
-#### **4. User Experience Testing**
-
-- **Multi-browser Compatibility**: Chrome, Firefox, Safari, Edge
-- **Mobile Responsiveness**: iOS and Android devices
-- **Accessibility**: WCAG 2.1 compliance
-- **Voice Input**: Cross-platform speech recognition
-
-### **Quality Assurance Metrics**
-
-#### **Accuracy Benchmarks**
-
-- **Decision Accuracy**: 95%+ correct policy interpretations
-- **Context Relevance**: 90%+ relevant document retrieval
-- **Confidence Calibration**: Reliable confidence scoring
-- **Clause Mapping**: 100% traceable decisions
-
-#### **Performance Benchmarks**
-
-- **API Response**: Average 2.1 seconds
-- **Document Indexing**: 500 pages/minute
-- **Frontend Load**: < 1 second initial load
-- **Error Rate**: < 0.1% system errors
-
 ## 🔧 Configuration
 
 ### Backend Configuration (`backend/config.py`)
@@ -561,108 +486,6 @@ PERSIST_DIRECTORY = "./chromadb_data"         # ChromaDB storage
 GROQ_API_KEY=your_groq_api_key_here           # Required for LLM
 CHROMA_PERSIST_DIR=./chromadb_data            # Optional: ChromaDB location
 ```
-
-## 📁 Code Structure
-
-### **Comprehensive Project Architecture**
-
-```
-Bajaj/
-├── 📂 backend/                     # Python Flask Backend
-│   ├── 🐍 app.py                   # Main Flask API server & routing
-│   ├── 🔍 query.py                # Query processing & LLM integration
-│   ├── 🏗️  build_index.py          # Document indexing & embedding
-│   ├── 🛠️  utils.py                # PDF processing utilities
-│   ├── ⚙️  config.py               # Configuration management
-│   ├── 🚀 start_server.py         # Server startup script
-│   ├── 🧪 test_api.py             # API testing utilities
-│   ├── 🔧 setup_env.py            # Environment setup
-│   ├── 📋 requirements.txt        # Python dependencies
-│   ├── 📁 docs/                   # Insurance policy documents
-│   │   ├── 📄 d1.pdf              # Policy document 1
-│   │   └── 📄 d2.pdf              # Policy document 2
-│   ├── 🗃️  chromadb_data/          # Vector database storage
-│   └── 🚫 .gitignore              # Git ignore rules
-│
-├── 📂 frontend/                    # React TypeScript Frontend
-│   ├── 📂 public/                 # Static assets
-│   │   ├── 🖼️  images/             # Image assets
-│   │   │   ├── 🏢 bajaj.png        # Bajaj logo
-│   │   │   ├── 📸 b1.png           # Demo screenshot 1
-│   │   │   ├── 📸 b2.png           # Demo screenshot 2
-│   │   │   ├── 📸 b3.png           # Demo screenshot 3
-│   │   │   ├── 📸 b4.png           # Demo screenshot 4
-│   │   │   ├── 📸 b5.png           # Demo screenshot 5
-│   │   │   └── 🤝 trust-handshake.jpg # Trust image
-│   │   └── 🤖 robots.txt          # SEO configuration
-│   │
-│   ├── 📂 src/                    # Source code
-│   │   ├── 📂 components/         # React components
-│   │   │   ├── 🏠 Hero.tsx         # Landing page hero
-│   │   │   ├── 📝 InputInterface.tsx # Multi-modal input
-│   │   │   ├── 🧠 SimulationPage.tsx # AI processing interface
-│   │   │   ├── 👤 MeetRajan.tsx    # About section
-│   │   │   ├── 📚 ExplainerSection.tsx # How it works
-│   │   │   ├── 🔗 Header.tsx       # Navigation header
-│   │   │   ├── 🦶 Footer.tsx       # Footer component
-│   │   │   └── 📂 ui/             # shadcn/ui components
-│   │   │       ├── 🔘 button.tsx   # Button component
-│   │   │       ├── 📇 card.tsx     # Card component
-│   │   │       ├── 📝 input.tsx    # Input component
-│   │   │       ├── 🏷️  badge.tsx    # Badge component
-│   │   │       └── ... (30+ UI components)
-│   │   │
-│   │   ├── 📂 pages/              # Page components
-│   │   │   ├── 🏠 Index.tsx        # Main page
-│   │   │   └── ❌ NotFound.tsx     # 404 page
-│   │   │
-│   │   ├── 📂 hooks/              # Custom React hooks
-│   │   │   ├── 📱 use-mobile.tsx   # Mobile detection
-│   │   │   └── 🍞 use-toast.ts     # Toast notifications
-│   │   │
-│   │   ├── 📂 lib/                # Utility libraries
-│   │   │   └── 🛠️  utils.ts        # Helper functions
-│   │   │
-│   │   ├── 🎨 index.css           # Global styles & Tailwind
-│   │   ├── ⚛️  App.tsx             # Main App component
-│   │   ├── 🚀 main.tsx            # React entry point
-│   │   └── 📝 vite-env.d.ts       # Vite type definitions
-│   │
-│   ├── 🔧 package.json            # Node.js dependencies
-│   ├── 🔒 package-lock.json       # Dependency lock file
-│   ├── ⚙️  vite.config.ts         # Vite configuration
-│   ├── 🎨 tailwind.config.ts      # Tailwind CSS config
-│   ├── 📝 tsconfig.json           # TypeScript configuration
-│   ├── 🌐 index.html              # HTML template
-│   ├── 📋 components.json         # shadcn/ui configuration
-│   └── 🚫 .gitignore              # Git ignore rules
-│
-├── 📖 README.md                   # Project documentation
-└── 🔄 Project workflow files      # Development & deployment configs
-```
-
-### **Key Code Organization Principles**
-
-#### 🏗️ **Backend Structure**
-
-- **Modular Architecture**: Each file has a single responsibility
-- **Configuration Management**: Centralized config with environment variables
-- **API Design**: RESTful endpoints with proper error handling
-- **Data Processing**: Separate modules for document processing and AI integration
-
-#### ⚛️ **Frontend Structure**
-
-- **Component-Based**: Reusable, composable React components
-- **Type Safety**: Full TypeScript integration for better development experience
-- **Modern Tooling**: Vite for fast development and building
-- **Design System**: Consistent UI with shadcn/ui components
-
-#### 🔄 **Development Workflow**
-
-- **Hot Reload**: Instant feedback during development
-- **Type Checking**: Compile-time error detection
-- **Code Organization**: Clear separation of concerns
-- **Asset Management**: Optimized image and static file handling
 
 ## 🛠️ Technical Features
 
