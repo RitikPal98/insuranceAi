@@ -1,0 +1,10 @@
+openai
+chromadb
+tiktoken
+sentence-transformers
+numpy
+faiss-cpu
+flask
+flask-cors
+groq
+PyPDF2          

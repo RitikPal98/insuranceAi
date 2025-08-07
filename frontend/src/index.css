@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* INSIGHTMIND Design System - Neumorphism + Glassmorphism */
+    --background: 210 40% 98%;
+    --foreground: 220 39% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 39% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 39% 11%;
+
+    /* Bajaj Blue Primary */
+    --primary: 211 100% 40%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Bajaj Light Blue Secondary */
+    --secondary: 211 100% 60%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 211 100% 96%;
+    --muted-foreground: 215 14% 47%;
+
+    /* Bajaj Blue Accent */
+    --accent: 211 100% 40%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 211 100% 40%;
+
+    /* Neumorphism shadows */
+    --shadow-neumorphism: 8px 8px 16px rgba(163, 177, 198, 0.6), -8px -8px 16px rgba(255, 255, 255, 0.5);
+    --shadow-neumorphism-inset: inset 8px 8px 16px rgba(163, 177, 198, 0.6), inset -8px -8px 16px rgba(255, 255, 255, 0.5);
+    
+    /* Glass morphism */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220, 39%, 11%) 0%, hsl(220, 30%, 18%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210, 40%, 98%) 0%, hsl(220, 39%, 96%) 50%, hsl(210, 40%, 94%) 100%);
+    
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 39% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 30% 18%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 30% 18%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 45 96% 53%;
+    --primary-foreground: 220 39% 11%;
+
+    --secondary: 220 30% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 30% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 45 96% 53%;
+    --accent-foreground: 220 39% 11%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 45 96% 53%;
+
+    /* Dark mode neumorphism */
+    --shadow-neumorphism: 8px 8px 16px rgba(0, 0, 0, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.1);
+    --shadow-neumorphism-inset: inset 8px 8px 16px rgba(0, 0, 0, 0.4), inset -8px -8px 16px rgba(255, 255, 255, 0.1);
+    
+    --glass-bg: rgba(0, 0, 0, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    background: var(--gradient-hero);
+    background-attachment: fixed;
+  }
+  
+  /* Neumorphism utilities */
+  .neumorphism {
+    box-shadow: var(--shadow-neumorphism);
+  }
+  
+  .neumorphism-inset {
+    box-shadow: var(--shadow-neumorphism-inset);
+  }
+  
+  /* Glass morphism utilities */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+  }
+  
+  /* Accessibility mode */
+  .accessibility-mode {
+    font-size: 1.375rem !important; /* 22px */
+  }
+  
+  .accessibility-mode button {
+    transform: scale(1.5);
+    margin: 0.5rem;
+  }
+}
