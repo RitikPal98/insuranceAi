@@ -8,3 +8,7 @@ flask
 flask-cors
 groq
 PyPDF2          
+flask_cors
+python-dotenv
+requests
+
