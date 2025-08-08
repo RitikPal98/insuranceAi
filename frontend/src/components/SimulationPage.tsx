@@ -66,7 +66,7 @@ export const SimulationPage = ({ query, onNewQuery }: SimulationPageProps) => {
   // API call function
   const callBackendAPI = async (userQuery: string): Promise<ApiResponse> => {
     // http://localhost:5000/query
-    const response = await fetch('https://insuranceai-backend-4267.onrender.com/query', {
+    const response = await fetch('https://insurance-ai-backend.vercel.app/query', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
