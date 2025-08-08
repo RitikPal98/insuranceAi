@@ -65,7 +65,8 @@ export const SimulationPage = ({ query, onNewQuery }: SimulationPageProps) => {
 
   // API call function
   const callBackendAPI = async (userQuery: string): Promise<ApiResponse> => {
-    const response = await fetch('http://localhost:5000/query', {
+    // http://localhost:5000/query
+    const response = await fetch('https://insuranceai-backend-4267.onrender.com/query', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
